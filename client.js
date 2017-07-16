@@ -6,6 +6,10 @@ const output = document.getElementById('output');
 const city = document.getElementById('city');
 const bg = document.getElementById('bg');
 
+ReactDOM.render(
+  <h1>Hello, world!</h1>,
+  document.getElementById('root')
+);
 
 button.addEventListener('click', () => {
 	ipcRenderer.send('asynchronous-message', cityName.value);
