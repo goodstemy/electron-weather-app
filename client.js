@@ -4,6 +4,7 @@ const button = document.getElementById('button');
 const cityName = document.getElementById('city-name');
 const output = document.getElementById('output');
 const city = document.getElementById('city');
+const bg = document.getElementById('bg');
 
 
 button.addEventListener('click', () => {
@@ -31,6 +32,7 @@ ipcRenderer.on('asynchronous-reply', (event, arg) => {
 
 		city.style.opacity = 1;
 		output.style.opacity = 1;
+		bg.style.backgroundImage = 'url("' + arg.img[0].url + '")'
 	} else {
 		output.innerHTML = "Can not found city with name " + cityName.value
 	}

@@ -11,6 +11,8 @@ html, body {
 	background-image: url('static/default-background.jpg');
 	background-position: center center;
 	background-size: cover;
+
+	transition: all .4s ease-in-out;
 }
 
 .filter {

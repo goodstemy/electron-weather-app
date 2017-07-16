@@ -2,11 +2,14 @@ const electron = require('electron');
 const path = require('path');
 const url = require('url');
 const weather = require('weather-js');
+const GoogleImages = require('google-images');
 
 const {ipcMain} = require('electron');
 
 const app = electron.app;
-const BrowserWindow = electron.BrowserWindow
+const BrowserWindow = electron.BrowserWindow;
+
+const client = new GoogleImages('001462481511008949931:vvhugxvyp6u', 'AIzaSyBSljMrRqro1HpWZobmnAHddw2bNtZOyMU');
 
 require('electron-reload')(__dirname, {
 	electron: require('electron-prebuilt')
@@ -27,13 +30,21 @@ function createWindow() {
 
 	mainWindow.webContents.openDevTools()
 
+
+
 	ipcMain.on('asynchronous-message', (event, arg) => {
 
   	weather.find({search: arg, degreeType: 'C'}, (err, result) => {
   		if (err) console.log(err);
 
-  		// console.log(result);
-  		event.sender.send('asynchronous-reply', {res: result})
+			client.search(arg)
+				.then(images => {
+  				event.sender.send('asynchronous-reply', {res: result, img: images})
+				})
+				.catch(err => {
+					console.log(err);
+				});
+
   	});
 	  // console.log(arg)  // prints "ping"
 	  // event.sender.send('asynchronous-reply', 'pong')

@@ -15,6 +15,7 @@
     "electron-reload": "^1.2.1"
   },
   "dependencies": {
+    "google-images": "^2.1.0",
     "weather-js": "^2.0.0"
   }
 }
