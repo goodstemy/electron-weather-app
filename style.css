@@ -1,0 +1,172 @@
+.wrapper {
+  width: 100%;
+  margin: 50px auto;
+}
+.main {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: space-between;
+  color: #000;
+  position: relative;
+  width: 100%;
+  min-height: 300px;
+}
+.main::before {
+  content: "";
+  background: url(https://img4.goodfon.ru/original/1366x768/9/9e/urban-travel-architecture-moscow-city-skyscraper-sun-sky-c-1.jpg);
+  background-size: cover;
+  background-position: center center;
+  opacity: .5;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;
+  filter: blur(2px);
+}
+/*======HEADER========*/
+.header {
+  min-height: 100px;
+  font-family: Helvetica;
+}
+.header-location {
+  padding-top: 50px;
+  padding-right: 100px;
+}
+.header-location i {
+   color: rgba(0, 0, 0, .7);
+  padding-left: 300px;
+}
+.location-city {
+  font-family: Helvetica;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 2.6rem;
+  text-align: right;
+  margin: 0;
+  color: rgba(0, 0, 0, .7);
+}
+.location-time {
+  font-family: Helvetica;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 2.6rem;
+  text-align: right;
+  margin: 0;
+   color: rgba(0, 0, 0, .7);
+}
+.header-search {
+  padding-top: 50px;
+  padding-left: 50px;
+}
+.header-search-city {
+  font-family: Helvetica;
+  font-style: normal;
+  font-weight: 300;
+  border: none;
+  border-bottom: 1px solid rgba(255, 255, 255, .1);
+  width: 300px;
+  height: 20px;
+  font-size: 1.5rem;
+  outline: none;
+  background-color: inherit;
+  border-bottom: 1px solid rgba(0, 0, 0, .2);
+  transition: all .5s ease-in;
+}
+.header-search-city:hover {
+  border-bottom: 1px solid rgba(0, 0, 0, .5);
+}
+.header-search-button {
+  font-family: Helvetica;
+  font-style: normal;
+  font-weight: 300;
+  width: 75px;
+  height: 50px;
+  font-size: 1.5rem;
+  border: none;
+  background-color: transparent;
+  outline: none;
+  cursor: pointer;
+  transition: all .2s ease-in-out;
+  opacity: .7;
+}
+.header-search-button:hover {
+  opacity: 1;
+  transition: all .5s ease-in-out;
+}
+/*======categories????=====*/
+.categories {
+  margin-top: 100px;
+  text-align: center;
+}
+.categories-item {
+  box-sizing: border-box;
+  font-family: Helvetica;
+  font-size: .7rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  padding: 10px;
+  opacity: .5;
+  transition: all .5s ease-in;
+  cursor: pointer;
+}
+.categories-item:nth-child(1)  {
+  border-bottom: 5px solid #47f770;
+}
+.categories-item:nth-child(2)  {
+  border-bottom: 5px solid #f7dd47;
+}
+.categories-item:nth-child(3)  {
+  border-bottom: 5px solid #369;
+}
+.categories-item:hover {
+  opacity: 1;
+}
+/*======Weather=====*/
+.weather {
+  position: relative;
+  min-height: 100px;
+  border: 1px solid #887e7e;
+}
+.weather::before {
+  content: "";
+  background-color: #fff;
+  opacity: .2;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: 1;
+}
+.weather-item {
+  display: flex;
+  flex-flow: column wrap;
+  min-height: 100px;
+  box-sizing: border-box;
+  border-right: 1px solid #887e7e;
+  text-align: center;
+  align-self: center;
+  padding: 10px 0;
+}
+.weather-temperature {
+  font-family: Helvetica;
+  font-size: 1rem;
+  font-weight: 300;
+}
+.weather-temperature:first-child {
+    margin: 0;
+    font-size: 3rem;
+}
+.weather-day {
+  align-self: center;
+  font-family: Helvetica;
+  font-size: .9rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+.weather-day:last-child {
+    font-size: 1.5rem;
+    padding: 0;
+}
