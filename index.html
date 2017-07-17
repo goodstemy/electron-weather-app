@@ -1,33 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-	<meta charset="UTF-8">
-	<title>Weather App</title>
-	<link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,700&amp;subset=cyrillic-ext" rel="stylesheet">
-	<link rel="stylesheet" href="stylesheets.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flexboxgrid/6.3.1/flexboxgrid.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Weather app</title>
 </head>
+
 <body>
-	<div id="root"></div>
-	<div id="bg" class="background">
-		<div class="filter"></div>
-		<div class="input">
-			<center>
-				<input type="text" id="city-name">
-				<button id="button">search</button>
-			</center>
-		</div>
-		<div class="result">
-			<center>
-				<p class="city" id="city"></p>
-				<p class="output" id="output"></p>
-			</center>
-		</div>
-	</div>
-
-	<script src="static/react/react.min.js"></script>
-	<script src="static/react/react-dom.min.js"></script>
-	<script src="static/react/babel.min.js"></script>
-
-	<script type="text/babel" src="client.js"></script>
+    <div class="wrapper">
+        <section class="main">
+            <header class="header">
+                <div class="row">
+                    <div class="col-xs-6">
+                        <div class="header-search">
+                            <input type="text" class="header-search-city">
+                            <button class="header-search-button">search</button>
+                        </div>
+                    </div>
+                    <div class="col-xs-4 col-xs-offset-2">
+                        <div class="header-location">
+                            <i class="fa fa-map-marker fa-4x" aria-hidden="true" class="header-location-img"></i>
+                            <p class="location-city">FLORIDA</p>
+                            <p class="location-time">20:13</p>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <div class="categories">
+                <div class="row">
+                    <div class="col-xs-2 categories-item">Weather</div>
+                    <div class="col-xs-2 categories-item">Gallery</div>
+                    <div class="col-xs-2 categories-item">History</div>
+                </div>
+            </div>
+            <div class="weather">
+                <div class="row">
+                    <div class="col-xs-4 weather-item ">
+                        <p class="weather-temperature">82'</p>
+                        <p class="weather-day">MONDAY</p>
+                    </div>
+                    <div class="col-xs-2 weather-item ">
+                        <p class="weather-day">TUE</p>
+                        <i class="fa fa-telegram fa-2x" aria-hidden="true"></i>
+                        <p class="weather-temperature">60</p>
+                    </div>
+                    <div class="col-xs-2 weather-item ">
+                        <p class="weather-day">tuesday</p>
+                        <i class="fa fa-telegram fa-2x" aria-hidden="true"></i>
+                        <p class="weather-temperature">60</p>
+                    </div>
+                    <div class="col-xs-2 weather-item ">
+                        <p class="weather-day">TUE</p>
+                        <i class="fa fa-telegram fa-2x" aria-hidden="true"></i>
+                        <p class="weather-temperature">60</p>
+                    </div>
+                    <div class="col-xs-2 weather-item ">
+                        <p class="weather-day">TUE</p>
+                        <i class="fa fa-telegram fa-2x" aria-hidden="true"></i>
+                        <p class="weather-temperature">60</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
 </body>
+
 </html>
