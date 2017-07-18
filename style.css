@@ -2,62 +2,41 @@
   font-family: "Roboto";
   src: url(static/fonts/Roboto-Black.ttf);
 }
-.main {
-  display: flex;
-  flex-flow: column wrap;
-  justify-content: space-between;
+/*===========HEADER==============*/
+body {
   color: #000;
-  position: relative;
-  width: 100%;
-  min-height: 300px;
   font-family: "Roboto";
 }
-.main::before {
+.wrapper {
+  width: 80%;
+  margin: 0 auto;
+}
+.wrapper::before {
+  width: 80%;
+  margin: 0 auto;
   content: "";
-  background: url(https://img4.goodfon.ru/original/1366x768/9/9e/urban-travel-architecture-moscow-city-skyscraper-sun-sky-c-1.jpg);
+  background-image: url(./background.jpg);
   background-size: cover;
   background-position: center center;
-  opacity: .5;
   top: 0;
   left: 0;
   bottom: 0;
   right: 0;
   position: absolute;
   z-index: -1;
-  filter: blur(2px);
+  filter: brightness(70%);
+  filter: blur(1px);
 }
-/*======HEADER========*/
 .header {
-  min-height: 100px;
-}
-.header-location {
-  padding-top: 50px;
-  padding-right: 100px;
-}
-.fa-cloud {
-  color: #fff;
-}
-.location-city {
-  font-style: normal;
-  font-weight: 300;
-  font-size: 2.6rem;
-  text-align: right;
-  margin: 0;
-  color: rgba(0, 0, 0, .7);
-}
-.location-time {
-  font-style: normal;
-  font-weight: 300;
-  font-size: 2.6rem;
-  text-align: right;
-  margin: 0;
-  color: rgba(0, 0, 0, .7);
+  display: flex;
+  justify-content: space-between;
+  min-height: 75vh;
 }
 .header-search {
-  padding-top: 50px;
-  padding-left: 50px;
+  padding-left: 6rem;
+  padding-top: 3rem;
 }
-.header-search-city {
+.header-input-search {
   font-style: normal;
   font-weight: 300;
   border: none;
@@ -67,88 +46,86 @@
   font-size: 1.5rem;
   outline: none;
   background-color: inherit;
-  border-bottom: 1px solid rgba(0, 0, 0, .2);
+  border-bottom: 1px solid rgba(255, 255, 255, .5);
   transition: all .5s ease-in;
+  color: rgba(255, 255, 255, .9);
+  padding: 3px 0;
 }
-.header-search-city:hover {
-  border-bottom: 1px solid rgba(0, 0, 0, .5);
-}
-.header-search-button {
+.header-button-search {
   font-style: normal;
   font-weight: 300;
   width: 75px;
   height: 50px;
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   border: none;
   background-color: transparent;
   outline: none;
   cursor: pointer;
   transition: all .2s ease-in-out;
-  opacity: .7;
+  color: rgba(255, 255, 255, .7);
 }
-.header-search-button:hover {
-  opacity: 1;
-  transition: all .5s ease-in-out;
+.header-button-search:hover {
+  color: rgba(255, 255, 255, 1);
 }
-/*======categories????=====*/
-.categories {
-  margin-top: 100px;
-  text-align: center;
+.header-location {
+  padding-right: 6rem;
+  padding-top: 3rem;
 }
-.categories-item {
-  box-sizing: border-box;
-
-  font-size: .7rem;
-  font-weight: 900;
-  text-transform: uppercase;
-  padding: 10px;
-  opacity: .5;
-  transition: all .5s ease-in;
-  cursor: pointer;
+.header-location-city {
+  font-style: normal;
+  font-weight: 300;
+  font-size: 3rem;
+  text-align: right;
+  margin: 0;
+  color: rgba(255, 255, 255, .9);
 }
-.categories-item:nth-child(1) {
-  border-bottom: 5px solid #47f770;
+.header-location-time {
+  font-style: normal;
+  font-weight: 300;
+  font-size: 1.2rem;
+  text-align: right;
+  margin: 0;
+  color: rgba(255, 255, 255, .9);
 }
-.categories-item:nth-child(2) {
-  border-bottom: 5px solid #f7dd47;
-}
-.categories-item:nth-child(3) {
-  border-bottom: 5px solid #369;
-}
-.categories-item:hover {
-  opacity: 1;
-}
-/*======Weather=====*/
+/*==================WEATHER================*/
 .weather {
-  position: relative;
-  min-height: 100px;
-  border: 1px solid #887e7e;
-}
-.weather::before {
-  content: "";
-  background-color: #fff;
-  opacity: .2;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  position: absolute;
-  z-index: 1;
+  height: 25vh;
+  display: flex;
+  color: rgba(255, 255, 255, .9);
+  text-align: center;
+  background: rgba(255, 255, 255, .1);
 }
 .weather-item {
-  display: flex;
-  flex-flow: column wrap;
-  min-height: 100px;
-  box-sizing: border-box;
-  border-right: 1px solid #887e7e;
-  text-align: center;
-  align-self: center;
-  padding: 10px 0;
+  width: 14%;
+  border-right: 1px solid rgba(255, 255, 255, .1);
+  padding: 1rem 0;
   text-transform: uppercase;
 }
 .weather-item:first-child {
-  padding: 34px 0;
+  width: 25%;
+  display: flex;
 }
 .weather-item:last-child {
   border: none;
+}
+.weather-statistic-data {
+  padding-left: 1rem;
+  padding-top: 1.2rem;
+}
+.weather-statistics-text {
+  padding-left: 1rem;
+  padding-top: 2rem;
+}
+.weather-statistic-temperature {
+  font-size: 2rem;
+}
+.weather-statistic-day {
+  font-size: 2rem;
+}
+.weather-statistic-img {
+  padding: 0;
+  margin: 0;
+}
+.weather-statistic-data i {
+  color: #379;
 }
