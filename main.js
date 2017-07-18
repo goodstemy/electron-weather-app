@@ -3,6 +3,7 @@ const path = require('path');
 const url = require('url');
 const weather = require('weather-js');
 const GoogleImages = require('google-images');
+const drag = require('electron-drag');
 
 const {ipcMain} = require('electron');
 
@@ -19,18 +20,21 @@ let mainWindow;
 
 function createWindow() {
 	mainWindow = new BrowserWindow({
-		width: 800, height: 600, icon: path.join(__dirname, 'static/cloud.png')
+		width: 800, 
+		height: 600, 
+		icon: path.join(__dirname, 'static/images/cloud.png'),
+		frame: false,
 	});
+
+	mainWindow.setMenu(null);
 
 	mainWindow.loadURL(url.format({
 		pathname: path.join(__dirname, 'index.html'),
 		protocol: 'file:',
 		slashes: true,
-	}))
+	}));
 
 	mainWindow.webContents.openDevTools()
-
-
 
 	ipcMain.on('asynchronous-message', (event, arg) => {
 
@@ -44,10 +48,7 @@ function createWindow() {
 				.catch(err => {
 					console.log(err);
 				});
-
-  	});
-	  // console.log(arg)  // prints "ping"
-	  // event.sender.send('asynchronous-reply', 'pong')
+  		});
 	});
 
 	mainWindow.on('closed', () => {

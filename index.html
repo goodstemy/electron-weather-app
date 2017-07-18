@@ -10,8 +10,15 @@
     <link rel="stylesheet" href="./static/styles/style.css">
     <title>Weather app</title>
 </head>
-
 <body>
+	<div id="toolbar">
+		<div class="buttons">
+			<div id="close"></div>
+			<div id="expand"></div>
+			<div id="turn"></div>
+		</div>
+		<section id="drag-area"></section>
+	</div>
     <div class="wrapper">
         <div class="main">
             <header class="header">
@@ -80,7 +87,7 @@
     </div>
     <script src="static/react/react.min.js"></script>
     <script src="static/react/react-dom.min.js"></script>
-    <script src="static/app.js"></script>
+    <script src="client.js"></script>
 </body>
 
 </html>

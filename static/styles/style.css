@@ -7,6 +7,56 @@ body {
   color: #000;
   font-family: "Roboto";
 }
+
+#toolbar {
+  width: 100%;
+  height: 25px;
+  position: absolute;
+}
+
+.buttons div {
+  float: left;
+  margin-top: 5px;
+  margin-left: 4px;
+  cursor: pointer;
+
+  width: 14px;
+  height: 14px;
+
+  border-radius: 50%;
+  opacity: .9;
+
+  position: relative;
+  z-index: 10;
+}
+
+.buttons {
+  padding-right: 3px;
+  width: 10%;
+  height: 100%;
+  display: inline-block;
+}
+
+#close {
+  background: -webkit-linear-gradient(top, #e36742 0%,#e55336 100%);
+}
+
+#expand {
+  background: #f9b041;
+}
+
+#turn {
+  background: #cfd0d2;
+}
+
+#drag-area {
+  width: 88%;
+  height: 100%;
+  position: relative;
+  z-index: 9;
+  display: inline-block;
+}
+
 .header {
   display: flex;
   justify-content: space-between;

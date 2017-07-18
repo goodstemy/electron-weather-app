@@ -16,6 +16,7 @@
     "electron-reload": "^1.2.1"
   },
   "dependencies": {
+    "electron-drag": "^1.2.0",
     "google-images": "^2.1.0",
     "weather-js": "^2.0.0"
   }
