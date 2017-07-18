@@ -2,26 +2,22 @@
   font-family: "Roboto";
   src: url(static/fonts/Roboto-Black.ttf);
 }
-.wrapper {
-  width: 100%;
-  margin: 50px auto;
-  font-family: "Roboto";
-}
 .main {
-  width: 100%;
   display: flex;
   flex-flow: column wrap;
   justify-content: space-between;
   color: #000;
   position: relative;
+  width: 100%;
   min-height: 300px;
+  font-family: "Roboto";
 }
 .main::before {
   content: "";
-  background: url(static/default-background.jpg);
+  background: url(https://img4.goodfon.ru/original/1366x768/9/9e/urban-travel-architecture-moscow-city-skyscraper-sun-sky-c-1.jpg);
   background-size: cover;
   background-position: center center;
-  opacity: .7;
+  opacity: .5;
   top: 0;
   left: 0;
   bottom: 0;
@@ -38,9 +34,8 @@
   padding-top: 50px;
   padding-right: 100px;
 }
-.header-location i {
-  color: rgba(0, 0, 0, .7);
-  padding-left: 300px;
+.fa-cloud {
+  color: #fff;
 }
 .location-city {
   font-style: normal;
@@ -102,6 +97,7 @@
 }
 .categories-item {
   box-sizing: border-box;
+
   font-size: .7rem;
   font-weight: 900;
   text-transform: uppercase;
@@ -131,7 +127,7 @@
 .weather::before {
   content: "";
   background-color: #fff;
-  opacity: .1;
+  opacity: .2;
   top: 0;
   left: 0;
   bottom: 0;
@@ -147,34 +143,12 @@
   border-right: 1px solid #887e7e;
   text-align: center;
   align-self: center;
-  padding: 10px 10px;
-
-}
-.weather-item:last-child {
-  padding: 0;
-  border-right: none;
-}
-.weather-temperature {
-  font-size: 1rem;
-  font-weight: 300;
-}
-.weather-temperature:first-child {
-  margin: 0;
-  font-size: 3rem;
-}
-.weather-day {
-  align-self: center;
-  font-size: .9rem;
-  font-weight: 600;
+  padding: 10px 0;
   text-transform: uppercase;
 }
-.weather-day:last-child {
-  font-size: 1rem;
-  padding: 0;
+.weather-item:first-child {
+  padding: 34px 0;
 }
-.weather-main-cloud {
-  padding: 25px 0;
-}
-.fa-cloud {
-  color: #fff;
+.weather-item:last-child {
+  border: none;
 }
