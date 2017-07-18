@@ -7,15 +7,15 @@ body {
   color: #000;
   font-family: "Roboto";
 }
-.wrapper {
-  width: 80%;
-  margin: 0 auto;
+.header {
+  display: flex;
+  justify-content: space-between;
+  height: 75vh;
 }
-.wrapper::before {
-  width: 80%;
-  margin: 0 auto;
-  content: "";
+.header::before {
+  height: 75vh;
   background-image: url(../images/background.jpg);
+  content: "";
   background-size: cover;
   background-position: center center;
   top: 0;
@@ -25,14 +25,9 @@ body {
   position: absolute;
   z-index: -1;
   filter: brightness(70%);
-  filter: blur(1px);
-}
-.header {
-  display: flex;
-  justify-content: space-between;
-  min-height: 75vh;
 }
 .header-search {
+  width: 50%;
   padding-left: 6rem;
   padding-top: 3rem;
 }
@@ -41,9 +36,9 @@ body {
   font-weight: 300;
   border: none;
   border-bottom: 1px solid rgba(255, 255, 255, .1);
-  width: 300px;
+  width: 50%;
   height: 20px;
-  font-size: 1.5rem;
+  font-size: 150%;
   outline: none;
   background-color: inherit;
   border-bottom: 1px solid rgba(255, 255, 255, .5);
@@ -54,9 +49,8 @@ body {
 .header-button-search {
   font-style: normal;
   font-weight: 300;
-  width: 75px;
   height: 50px;
-  font-size: 1.6rem;
+  font-size: 1.2em;
   border: none;
   background-color: transparent;
   outline: none;
@@ -91,30 +85,30 @@ body {
 .weather {
   height: 25vh;
   display: flex;
-  color: rgba(255, 255, 255, .9);
+  color: rgba(0, 0, 0, .8);
   text-align: center;
-  background: rgba(255, 255, 255, .1);
+  background: linear-gradient(135deg, #dcd6d6, #86869c);
 }
 .weather-item {
   width: 14%;
-  border-right: 1px solid rgba(255, 255, 255, .1);
-  padding: 1rem 0;
+  border-right: 1px solid rgba(0, 0, 0, .1);
+  padding: 0 0;
   text-transform: uppercase;
 }
 .weather-item:first-child {
   width: 25%;
   display: flex;
+  padding-top: 1.5rem;
 }
 .weather-item:last-child {
   border: none;
 }
 .weather-statistic-data {
   padding-left: 1rem;
-  padding-top: 1.2rem;
 }
 .weather-statistics-text {
   padding-left: 1rem;
-  padding-top: 2rem;
+  padding-top: .85rem;
 }
 .weather-statistic-temperature {
   font-size: 2rem;
@@ -122,10 +116,105 @@ body {
 .weather-statistic-day {
   font-size: 2rem;
 }
-.weather-statistic-img {
-  padding: 0;
-  margin: 0;
-}
 .weather-statistic-data i {
+  width: 100%;
   color: #379;
+}
+
+/*=================MEDIA QUERIES============*/
+@media (max-width: 1000px) {
+  .weather-statistic-temperature {
+    font-size: 1rem;
+  }
+  .weather-statistic-day {
+    font-size: 1rem;
+  }
+  .weather-item:first-child {
+    padding: 0;
+    margin: 0;
+    width: 25%;
+    display: flex;
+    flex-flow: column nowrap;
+  }
+}
+@media (max-width: 600px) {
+  .weather {
+    display: flex;
+    flex-flow: row wrap;
+    min-height: 25vh;
+    color: rgba(0, 0, 0, .8);
+    text-align: center;
+  }
+  .weather-item {
+    background: linear-gradient(135deg, #dcd6d6, #86869c);
+    display: flex;
+    justify-content: space-around;
+    padding: 1rem 0;
+    border: 1px solid;
+    width: 100%;
+    border-right: 1px solid rgba(0, 0, 0, .1);
+    text-transform: uppercase;
+  }
+  .weather-item:first-child {
+    width: 100%;
+    display: flex;
+    flex-flow: row;
+    align-self: center;
+    padding: 1rem 0;
+  }
+  .weather-item:last-child {
+    border: 1px solid rgba(0, 0, 0, .1);
+  }
+  .weather-statistic-temperature {
+    font-size: 2rem;
+  }
+  .weather-statistic-day {
+    font-size: 2rem;
+  }
+  .weather-item i {
+    align-self: center;
+  }
+
+  .header {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: space-around;
+    height: 75vh;
+  }
+  .header-search {
+    padding: 0 4rem;
+  }
+  .header-location {
+    align-self: center;
+  }
+  .header-location-time {
+    font-style: normal;
+    font-weight: 300;
+    font-size: 1.2rem;
+    text-align: right;
+    margin: 0;
+    color: rgba(255, 255, 255, .9);
+  }
+  .header-search {
+    width: 50%;
+    display: flex;
+  }
+  .header-input-search {
+    font-style: normal;
+    font-weight: 300;
+    border: none;
+    border-bottom: 1px solid rgba(255, 255, 255, .1);
+    font-size: 150%;
+    outline: none;
+    background-color: inherit;
+    border-bottom: 1px solid rgba(255, 255, 255, .5);
+    transition: all .5s ease-in;
+    color: rgba(255, 255, 255, .9);
+    padding: 3px 0;
+  }
+  .header-button-search {
+    font-style: normal;
+    font-weight: 300;
+    width: 50%;
+  }
 }
