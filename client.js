@@ -31,6 +31,16 @@ turn.addEventListener("click", (e) => {
 	window.minimize();
 });
 
+var img = window.getComputedStyle(
+	document.querySelector(".header"), ':before'
+);
+
+// img.addEventListener('load', function() {
+	// var vibrant = new Vibrant(img);
+	// var swatches = vibrant.swatches();
+	// console.log(swatches);
+// });
+
 // const button = document.getElementById('button');
 // const cityName = document.getElementById('city-name');
 // const output = document.getElementById('output');
