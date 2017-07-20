@@ -24,6 +24,8 @@ function createWindow() {
 		height: 600, 
 		icon: path.join(__dirname, 'static/images/cloud.png'),
 		frame: false,
+		minHeight: 500,
+		minWidth: 400,
 	});
 
 	mainWindow.setMenu(null);
