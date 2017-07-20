@@ -1,3 +1,5 @@
+(function() {
+
 const {ipcRenderer} = require('electron');
 const drag = require('electron-drag');
 const remote = require('electron').remote;
@@ -5,12 +7,12 @@ const remote = require('electron').remote;
 const clear = drag('#drag-area');
 
 if(!drag.supported) {
-    document.querySelector('#drag-area').style['-webkit-app-region'] = 'drag';
+  document.querySelector('#drag-area').style['-webkit-app-region'] = 'drag';
 }
 
-const close = document.querySelector("#close");
-const expand = document.querySelector("#expand");
-const turn = document.querySelector("#turn");
+const close = document.querySelector(".button-close");
+const expand = document.querySelector(".button-close");
+const turn = document.querySelector(".button-turn");
 
 close.addEventListener("click", (e) => {
 	const window = remote.getCurrentWindow();
@@ -31,10 +33,41 @@ turn.addEventListener("click", (e) => {
 	window.minimize();
 });
 
-var img = window.getComputedStyle(
-	document.querySelector(".header"), ':before'
-);
+const image = document.querySelector(".header-background-img");
+const weather = document.querySelector(".weather");
 
+image.addEventListener('load', function() {
+	const vibrant = new Vibrant(image);
+	const swatches = vibrant.swatches();
+	const gradient = [];
+
+	for (let swatch in swatches) {
+		if (swatches[swatch]) {
+			prettifyRgb(gradient, swatches[swatch].getRgb());
+		}
+	}
+
+	weather.style.background = getGradient(gradient);
+});
+
+function prettifyRgb(gradient, rgb) {
+	const color = 'rgba(' + rgb[0] + ',' + rgb[1] + ',' + rgb[2] + ',.5' + ')';
+	gradient.push(color);
+}
+
+function getGradient(gradient) {
+	let style = 'linear-gradient(90deg';
+
+	for (let i = 0; i < gradient.length; i++) {
+		style += ',' + gradient[i];
+	}
+
+	style += ')';
+
+	return style;
+}
+
+})();
 // img.addEventListener('load', function() {
 	// var vibrant = new Vibrant(img);
 	// var swatches = vibrant.swatches();

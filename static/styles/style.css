@@ -17,6 +17,11 @@
   font-family: "Roboto-Medium";
   src: url(../fonts/Roboto-Medium.ttf);
 }
+
+::-webkit-scrollbar {
+  width: 0;
+}
+
 /*===========HEADER==============*/
 body {
   color: #000;
@@ -102,6 +107,7 @@ body {
   right: 0;
   position: absolute;
   z-index: -2;
+  object-fit: cover;
 
   filter: brightness(80%);
 }
@@ -177,11 +183,11 @@ body {
   display: flex;
   color: rgba(0, 0, 0, .8);
   text-align: center;
-  background: linear-gradient(
-    135deg,
-    rgba(220, 214, 214, .1),
-    rgba(134, 134, 156, .5)
-  );
+  /*background: linear-gradient(*/
+    /*135deg,*/
+    /*rgba(220, 214, 214, .1),*/
+    /*rgba(134, 134, 156, .5)*/
+  /*);*/
 }
 
 .weather-item {
@@ -276,7 +282,7 @@ body {
   }
 
   .weather-item {
-    background: linear-gradient(135deg, #dcd6d6, #86869c);
+    /*background: linear-gradient(135deg, #dcd6d6, #86869c);*/
     display: flex;
     justify-content: space-around;
     padding: 1rem 0;
