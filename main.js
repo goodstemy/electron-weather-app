@@ -3,7 +3,6 @@ const path = require('path');
 const url = require('url');
 const weather = require('weather-js');
 const GoogleImages = require('google-images');
-const drag = require('electron-drag');
 
 const {ipcMain} = require('electron');
 
