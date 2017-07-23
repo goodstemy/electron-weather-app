@@ -14,5 +14,5 @@ npm install -g webpack
 npm install -g electron
 npm install
 npm start
-from another terminal: npm watch
+from another terminal: npm run watch
 ```
