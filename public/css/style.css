@@ -26,6 +26,7 @@
 body {
   color: #000;
   font-family: "Roboto";
+  -ms-overflow-style: scrollbar;
 }
 
 .toolbar {
@@ -84,10 +85,11 @@ body {
   background: #cfd0d2;
 }
 
-#drag-area {
+.drag-area {
   height: 40px;
   margin-left: 60px;
   z-index: 9;
+  -webkit-app-region: drag;
 }
 
 .header {
@@ -171,7 +173,7 @@ body {
 .header-location-icon {
   width: 70px;
   height: 70px;
-  background-image: url("../images/location-icon.png");
+  background-image: url("../img/location-icon.png");
   background-size: cover;
   margin-left: 57%;
   margin-bottom: .5rem;

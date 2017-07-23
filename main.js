@@ -51,7 +51,7 @@ function createWindow() {
 	mainWindow = new BrowserWindow({
 		width: 800, 
 		height: 600, 
-		icon: path.join(__dirname, 'static/images/cloud.png'),
+		icon: path.join(__dirname, 'public/img/cloud.png'),
 		frame: false,
 		minHeight: 500,
 		minWidth: 400,
@@ -65,7 +65,7 @@ function createWindow() {
 		slashes: true,
 	}));
 
-	mainWindow.webContents.openDevTools()
+	mainWindow.webContents.openDevTools();
 
 	mainWindow.on('closed', () => {
 		mainWindow = null;
