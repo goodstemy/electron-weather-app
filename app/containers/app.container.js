@@ -1,8 +1,8 @@
 import React from 'react';
 
 import Toolbar from '../components/toolbar.component';
-import Header from '../components/header.component';
-import Weather from "../components/weather.component";
+import Article from '../components/article.component';
+import Aside from '../components/aside.component';
 
 class AppContainer extends React.Component {
   constructor(props) {
@@ -14,8 +14,8 @@ class AppContainer extends React.Component {
     return(
       <div>
         <Toolbar/>
-        <Header/>
-        <Weather/>
+        <Article/>
+        <Aside/>
       </div>
     )
   }
