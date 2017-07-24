@@ -18,6 +18,9 @@
   src: url(../fonts/Roboto-Medium.ttf);
 }
 
+*::selection {
+  background: transparent;
+}
 /*=========TOOLBAR=============*/
 ::-webkit-scrollbar {
   width: 0;
@@ -90,7 +93,7 @@
   box-sizing: border-box;
   user-select: all;
   float: left;
-  width: 70%;
+  width: 60%;
   min-height: 100vh;
   background: #fff;
   border-right: 1px solid #ccc;
@@ -100,12 +103,14 @@
   justify-content: space-around;
   font-family: "Roboto-Light";
   color: rgba(0, 0, 0, .5);
+
+  padding: 3rem 3rem 3rem 3rem;
 }
 
 .article-weather,
 .article-data,
 .article-date {
-  padding: 1rem 3rem;
+  
 }
 
 .article-data {
@@ -140,15 +145,14 @@
 }
 
 .article-weather {
-  padding: 0 2rem;
+  padding-right: 0;
+  margin: 0;
   display: flex;
   flex-flow: row wrap;
 }
 
 .article-weather-item {
-  padding: 0;
-  margin: 0;
-  flex-basis: 13%;
+  flex-basis: 14%;
 
   font-size: .7rem;
   text-align: center;
@@ -156,7 +160,7 @@
 
 .article-weater-item-icon {
   padding: 1rem 0;
-  width: 50%;
+  width: 70%;
 }
 
 /*==========ASIDE============*/
@@ -168,7 +172,7 @@
   background: url("../img/background.jpg");
   background-size: cover;
   background-position: center center;
-  width: 30%;
+  width: 40%;
   height: 100vh;
 }
 /*==========MEDIA============*/
@@ -177,7 +181,7 @@
     width: 100%;
   }
   .article-weather {
-    padding: 0 1rem 0 3rem;
+    padding: 0 ;
   }
   .aside {
     display: none;
