@@ -54,6 +54,9 @@ function createWindow() {
 		frame: false,
 		minHeight: 500,
 		minWidth: 400,
+		maxHeight: 500,
+		maxWidth: 800,
+		center: true,
 	});
 
 	mainWindow.setMenu(null);
