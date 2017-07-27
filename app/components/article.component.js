@@ -4,14 +4,17 @@ class Article extends React.Component {
   constructor(props) {
     super(props);
 
-    this.stat = {};
+    this.state = {};
   }
+
   render() {
     return (
       <article className="article">
         <div className="article-wrap">
           <div className="article-date">
+            <div className="search-button" onClick={this.props.helpers().turnModal}/>
             <p className="article-date-day">sun 12</p>
+            <br/>
             <p className="article-date-month">october</p>
           </div>
           <div className="article-data">
