@@ -4,8 +4,9 @@ class Aside extends React.Component {
   constructor(props) {
     super(props);
 
-    this.stat = {};
+    this.state = {};
   }
+  
   render() {
     return (
       <aside className="aside">

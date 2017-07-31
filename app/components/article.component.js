@@ -1,5 +1,7 @@
 import React from "react";
 
+let styles;
+
 class Article extends React.Component {
   constructor(props) {
     super(props);
@@ -8,11 +10,15 @@ class Article extends React.Component {
   }
 
   render() {
+    styles = {
+      backgroundImage: `url(${this.props.iconPath})`,
+    }
+
     return (
       <article className="article">
         <div className="article-wrap">
           <div className="article-date">
-            <div className="search-button" onClick={this.props.helpers().turnModal}/>
+            <div className="search-button" style={styles} onClick={this.props.helpers().turnModal}/>
             <p className="article-date-day">sun 12</p>
             <br/>
             <p className="article-date-month">october</p>

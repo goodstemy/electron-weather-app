@@ -9,8 +9,8 @@ class ModalWindow extends React.Component {
 
   render() {
     return (
-      <div onClick={e => {this.props.helpers().handleOutside(e)}} className={this.props.className + " modal"}>
-        <input type="text"/>
+      <div className={this.props.className + " modal"}>
+        <input type="text" placeholder="Type your city"/>
       </div>
     )
   }

@@ -5,6 +5,11 @@ import Article from '../components/article.component';
 import Aside from '../components/aside.component';
 import ModalWindow from '../components/modal.component';
 
+const SEARCH_ICON_PATH = "public/img/search.svg";
+const CLOSE_SEARCH_PATH = "public/img/close_search_icon.svg";
+
+let searchIcon;
+
 class AppContainer extends React.Component {
   constructor(props) {
     super(props);
@@ -12,51 +17,54 @@ class AppContainer extends React.Component {
     this.state = {
       isShowingModal: false,
       modalClass: "modal-closed",
+      searchIconPath: SEARCH_ICON_PATH,
     };
   }
 
   componentDidMount = () => {
+    // searchIcon = document.querySelector(".search-button");
+    // searchIcon.style.backgroundImage = `url(${this.state.searchIconPath}`;
+
     document.addEventListener('keydown', (e) => {
       if (e.keyCode === 27) {
         this.setState({
           isShowingModal: false,
           modalClass: "modal-closed",
+          searchIconPath: SEARCH_ICON_PATH,
         });
       }
     })
   }
 
   turnModal = () => {
-    console.log(this.state.isShowingModal);
-
     if (!this.state.isShowingModal) {
-      this.setState({modalClass: "modal-opened"});
-      this.setState({isShowingModal: true});
+      this.state.searchIconPath;
+      this.setState({
+        modalClass: "modal-opened",
+        isShowingModal: true,
+        searchIconPath: CLOSE_SEARCH_PATH,
+      });
     } else {
-      this.setState({modalClass: "modal-closed"});
-      this.setState({isShowingModal: false});
-    }
-  };
-
-  handleOutside = (e) => {
-    if (e.target.className === "modal-opened modal") {
-      this.turnModal(false);
+      this.setState({
+        modalClass: "modal-closed",
+        isShowingModal: false,
+        searchIconPath: SEARCH_ICON_PATH,
+      });
     }
   };
 
   helpers = () => {
     return {
-      handleOutside: this.handleOutside,
       turnModal: this.turnModal,
     }
   };
 
   render() {
     return(
-      <div>
-        <ModalWindow helpers={this.helpers} className={this.state.modalClass}/>
+      <div className="container">
+        <ModalWindow className={this.state.modalClass}/>
         <Toolbar/>
-        <Article helpers={this.helpers}/>
+        <Article iconPath={this.state.searchIconPath} helpers={this.helpers}/>
         <Aside/>
       </div>
     )

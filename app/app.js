@@ -7,3 +7,8 @@ ReactDOM.render(
   <AppContainer/>,
   document.querySelector('#root')
 );
+
+let engine = new RainyDay({
+  image: document.querySelector('.aside'),
+  parentElement: document.querySelector('.container'),
+});
