@@ -18,13 +18,11 @@ class AppContainer extends React.Component {
       isShowingModal: false,
       modalClass: "modal-closed",
       searchIconPath: SEARCH_ICON_PATH,
+      weatherData: null,
     };
   }
 
   componentDidMount = () => {
-    // searchIcon = document.querySelector(".search-button");
-    // searchIcon.style.backgroundImage = `url(${this.state.searchIconPath}`;
-
     document.addEventListener('keydown', (e) => {
       if (e.keyCode === 27) {
         this.setState({
@@ -34,11 +32,10 @@ class AppContainer extends React.Component {
         });
       }
     })
-  }
+  };
 
   turnModal = () => {
     if (!this.state.isShowingModal) {
-      this.state.searchIconPath;
       this.setState({
         modalClass: "modal-opened",
         isShowingModal: true,
@@ -53,18 +50,27 @@ class AppContainer extends React.Component {
     }
   };
 
+  setWeatherData = (data) => {
+    this.setState({
+      weatherData: data,
+    });
+
+    console.log(data.item.condition);
+  };
+
   helpers = () => {
     return {
       turnModal: this.turnModal,
+      setWeatherData: this.setWeatherData,
     }
   };
 
   render() {
     return(
       <div className="container">
-        <ModalWindow className={this.state.modalClass}/>
+        <ModalWindow className={this.state.modalClass} helpers={this.helpers}/>
         <Toolbar/>
-        <Article iconPath={this.state.searchIconPath} helpers={this.helpers}/>
+        <Article iconPath={this.state.searchIconPath} helpers={this.helpers} weatherData={this.state.weatherData}/>
         <Aside/>
       </div>
     )

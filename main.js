@@ -1,15 +1,12 @@
 const electron = require('electron');
 const path = require('path');
 const url = require('url');
-const weather = require('weather-js');
-const GoogleImages = require('google-images');
+const yahooWeather = require('yahoo-weather');
 
 const {ipcMain} = require('electron');
 
 const app = electron.app;
 const BrowserWindow = electron.BrowserWindow;
-
-const client = new GoogleImages('001462481511008949931:vvhugxvyp6u', 'AIzaSyBSljMrRqro1HpWZobmnAHddw2bNtZOyMU');
 
 let mainWindow;
 
@@ -32,18 +29,15 @@ app.on('activate', () => {
 	}
 });
 
-ipcMain.on('asynchronous-message', (event, arg) => {
-	weather.find({search: arg, degreeType: 'C'}, (err, result) => {
-		if (err) console.log(err);
+ipcMain.on('city-name', (event, arg) => {
+  console.log('server received', arg);
 
-		client.search(arg)
-			.then(images => {
-				event.sender.send('asynchronous-reply', {res: result, img: images})
-			})
-			.catch(err => {
-				console.log(err);
-			});
-		});
+  yahooWeather(arg).then(data => {
+    console.log(data.item.forecast);
+    return event.sender.send('city-data', data);
+  }).catch(err => {
+    return event.sender.send('city-error', err);
+  });
 });
 
 function createWindow() {

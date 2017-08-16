@@ -8,7 +8,8 @@ ReactDOM.render(
   document.querySelector('#root')
 );
 
-let engine = new RainyDay({
-  image: document.querySelector('.aside'),
-  parentElement: document.querySelector('.container'),
-});
+// TODO: implement weather effects
+// let engine = new RainyDay({
+//   image: document.querySelector('.aside'),
+//   parentElement: document.querySelector('.container'),
+// });
