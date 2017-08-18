@@ -128,21 +128,15 @@ body {
 }
 
 .article-weather {
-  height: 500px;
-  width: 100px;
+  height: 30rem;
+  width: 9rem;
   overflow-y: auto;
   overflow-x: auto;
   position: relative;
-  top: -200px;
-  left: 300px;
-  border: 1px solid red;
+  top: -100px;
+  left: 55%;
 
   transform:rotate(-90deg) translateY(-100px);
-}
-
-.article-data,
-.article-date {
-
 }
 
 .article-data {
@@ -172,7 +166,7 @@ body {
 
 .modal {
   position: absolute;
-  width: 300px;
+  width: 20rem;
   height: 55px;
   top: 40px;
   right: 10px;
@@ -237,35 +231,53 @@ body {
   font-size: 6rem;
   font-weight: lighter;
   color: #91bbff;
+
+  transform:rotate(-180deg) translateY(-10px);
 }
 
 .article-data-icon {
   padding-left: 1rem;
-  margin: 0;
+  margin: 1rem 0;
   width: 5rem;
   align-self: flex-start;
 }
 
 .article-weather {
+  min-height: 30rem;
+  width: 35%;
   padding-right: 0;
   margin: 0;
-  display: flex;
-  flex-flow: row wrap;
+ display: inline-block;
+
 }
 
 .article-weather-item {
-  /*flex-basis: 14%;*/
-
+  height: 33.33%;
+  padding:0;
   transform: rotate(90deg);
   transform-origin: right top;
-  font-size: .7rem;
+  font-size: .6rem;
   text-align: center;
-  margin-left: -80px;
+
+  display: flex;
+  flex-flow: column nowrap;
 }
 
 .article-weather-item-icon {
-  padding: 1rem 0;
-  width: 70%;
+  margin: 0 auto;
+  width: 3rem;
+  height: 30%;
+}
+
+.article-weather-item-day {
+  margin: 1rem auto .3rem;
+  width: 30%;
+}
+
+
+.article-weather-item-temperature {
+  margin: .6rem auto;
+  width: 30%;
 }
 
 /*==========ASIDE============*/
@@ -287,6 +299,11 @@ body {
   }
   .article-weather {
     padding: 0 ;
+    margin: 0;
+  }
+  
+  .article-wrap {
+   
   }
   .aside {
     display: none;
