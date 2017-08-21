@@ -10,6 +10,7 @@ class Aside extends React.Component {
   render() {
     return (
       <aside className="aside">
+        <img className="bg-image" src="public/img/background.jpg" alt="fon"/>
       </aside>
     );
   }
