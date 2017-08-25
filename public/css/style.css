@@ -17,9 +17,7 @@
   font-family: "Roboto-Medium";
   src: url(../fonts/Roboto-Medium.ttf);
 }
-* {
-  margin: 0;
-}
+
 *::selection {
   background: transparent;
 }
@@ -59,11 +57,6 @@ body {
   top: 5px;
   left: 5px;
   background: -webkit-linear-gradient(top, #e36742 0%, #e55336 100%);
-  transition: all .2s ease-in-out;
-}
-
-.button-close:hover {
-  box-shadow: 0 0 10px .3px rgba(229, 83, 54, .5);
 }
 
 .button-expand {
@@ -78,11 +71,6 @@ body {
   top: 5px;
   left: 25px;
   background: #f9b041;
-  transition: all .2s ease-in-out;
-}
-
-.button-expand:hover {
-  box-shadow: 0 0 10px .3px rgba(249, 176, 65, .5);
 }
 
 .button-turn {
@@ -97,11 +85,6 @@ body {
   top: 5px;
   left: 45px;
   background: #cfd0d2;
-  transition: all .2s ease-in-out;
-}
-
-.button-turn:hover {
-  box-shadow: 0 0 10px .3px rgba(207, 208, 210, .5);
 }
 
 .drag-area {
@@ -126,23 +109,11 @@ body {
   font-family: "Roboto-Light";
   color: rgba(0, 0, 0, .5);
 
-  padding: 3rem 3rem 3rem 3rem;
-}
-
-.article-weather {
-  height: 30rem;
-  width: 10rem;
-  overflow-y: auto;
-  overflow-x: auto;
-  position: relative;
-  top: -100px;
-  left: 55%;
-
-  transform:rotate(-90deg) translateY(-100px);
+  padding: 3rem 3rem 0rem 3rem;
 }
 
 .article-data {
-  margin: 1rem 0;
+  margin: 2rem 0;
 }
 
 .search-button {
@@ -168,7 +139,7 @@ body {
 
 .modal {
   position: absolute;
-  width: 35%;
+  width: 37%;
   height: 55px;
   top: 40px;
   right: 10px;
@@ -180,7 +151,7 @@ body {
 
 .modal input {
   position: relative;
-  top: 2px;
+  top: 3px;
   width: 96%;
   height: 70%;
   border: none;
@@ -188,7 +159,7 @@ body {
   background-color: rgba(255, 255, 255, .6);
   outline: none;
   padding: 5px;
-  font-size: 2rem;
+  font-size: 35px;
   font-family: "Roboto-Light";
   color: rgba(0, 0, 0, .8);
 }
@@ -233,60 +204,51 @@ body {
   font-size: 6rem;
   font-weight: lighter;
   color: #91bbff;
-
-  transform:rotate(-180deg) translateY(-10px);
 }
 
 .article-data-icon {
   padding-left: 1rem;
-  margin: 1rem 0;
+  margin: 0;
   width: 5rem;
   align-self: flex-start;
 }
 
 .article-weather {
-  min-height: 20rem;
-  width: 35%;
-  padding-right: 0;
+  height: 23rem;
+  width: 9rem;
+  overflow-y: auto;
+  overflow-x: auto;
+  position: relative;
+  top: -100px;
+  left: 55%;
+  right: 0;
+  white-space:nowrap;
+  padding: 0;
   margin: 0;
- display: inline-block;
 
+  transform:rotate(-90deg) translateY(-100px);
 }
 
 .article-weather-item {
-  height: 33.33%;
-  padding:0;
+    height: 16%;
+ 
+  padding-left: 4rem;
+  padding-top: 1rem;
   transform: rotate(90deg);
   transform-origin: right top;
   font-size: .6rem;
   text-align: center;
-
-  display: flex;
-  flex-flow: column nowrap;
 }
 
-.article-weather-item-icon {
-  margin: 0 auto;
+.article-weater-item-icon {
+  padding: 0rem 0;
   width: 3rem;
-  height: 30%;
-}
-
-.article-weather-item-day {
-  margin: 1rem auto .3rem;
-  width: 30%;
-}
-
-
-.article-weather-item-temperature {
-  margin: .6rem auto;
-  width: 30%;
 }
 
 /*==========ASIDE============*/
 .aside {
-  margin: 0;
-  padding: 0;
   display: inline-block;
+  box-sizing: border-box;
   width: 40%;
   height: 100vh;
 }
@@ -296,53 +258,43 @@ body {
   object-fit: cover;
 }
 /*==========MEDIA============*/
+@media (min-width:470px) and (max-width:650px) {
+  .article-weather {
+    top: -150px;
+    min-height: 24rem;
+    float: left;
+  }
+  .article-weather-item {
+    min-height: 15%;
+     padding-left: 4rem;
+
+  }
+  .search-button {
+    right: 5%;
+  }
+}
 @media (max-width: 650px) {
   .article {
     width: 100%;
   }
-  .article-date {
-    margin-top: 5rem;
-  }
-
   .article-weather {
-  height: 25rem;
-  width: 35%;
-  margin: 0;
-  display: inline-block;
-
-}
-
-  .search-button {
-  position: absolute;
-  float: right;
-  left: 3rem;
-  top: 3rem;
+    height: 18rem;
+    margin-top: 6rem;
+    margin-left: .3rem;
   }
-  .modal {
-    width: 60%;
-    right: 50px;
-  }
-  
 
-.modal input {
-  position: relative;
-  top: 2px;
-  width: 96%;
-  height: 70%;
-  border: none;
-  border-bottom: 1px solid rgba(255, 255, 255, .8);
-  background-color: rgba(255, 255, 255, .6);
-  outline: none;
-  padding: 5px;
-  font-size: 2rem;
-  font-family: "Roboto-Light";
-  color: rgba(0, 0, 0, .8);
-}
-  
-  .article-wrap {
-   
+  .article-weather-item {
+    padding-left: 5rem;
+    height: 15%;
   }
+
   .aside {
     display: none;
   }
+  .modal {
+    width: 58%;
+    right: 120px;
+  }
 }
+
+
