@@ -1,5 +1,6 @@
 import React from 'react';
 import {ipcRenderer} from 'electron';
+import {Notification} from 'electron';
 
 class ModalWindow extends React.Component {
   constructor(params) {

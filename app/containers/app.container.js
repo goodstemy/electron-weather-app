@@ -54,8 +54,6 @@ class AppContainer extends React.Component {
     this.setState({
       weatherData: data,
     });
-
-    console.log(data.item.condition);
   };
 
   helpers = () => {

@@ -24,10 +24,12 @@
     "webpack-dev-server": "^2.6.1"
   },
   "dependencies": {
+    "electron-native-notification": "^1.2.0",
     "font-awesome": "^4.7.0",
     "react": "^15.6.1",
     "react-autocomplete": "^1.5.10",
     "react-dom": "^15.6.1",
-    "yahoo-weather": "^2.2.2"
+    "yahoo-weather": "^2.2.2",
+    "yql": "^1.0.2"
   }
 }
