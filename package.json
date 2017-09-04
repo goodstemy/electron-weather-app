@@ -1,12 +1,13 @@
 {
   "name": "weather-app",
-  "version": "0.0.1",
+  "version": "1.0.0-alpha",
   "description": "Simple weather app built with electron",
   "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "electron .",
-    "watch": "webpack --colors -p"
+    "watch": "webpack --colors -p",
+    "package": "electron-packager ./ WeatherApp --all --out ~/Desktop/WeatherApp --version 1.0.0 --overwrite --icon=./img/cloud.png"
   },
   "keywords": [],
   "author": "",
@@ -18,6 +19,7 @@
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
     "electron": "^1.7.5",
+    "electron-packager": "^9.0.1",
     "electron-prebuilt": "^1.4.13",
     "electron-reload": "^1.2.1",
     "webpack": "^3.3.0",

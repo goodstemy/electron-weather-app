@@ -13,9 +13,9 @@ const BrowserWindow = electron.BrowserWindow;
 let mainWindow;
 
 // Only for dev
-require('electron-reload')(__dirname, {
-	electron: require('electron-prebuilt')
-});
+// require('electron-reload')(__dirname, {
+// 	electron: require('electron-prebuilt')
+// });
 
 app.on('ready', createWindow);
 
@@ -38,11 +38,13 @@ ipcMain.on('city-name', (event, arg) => {
     `select * from weather.forecast where woeid in (select woeid from geo.places(1) where text="${arg}") and u='c'`);
 
   query.exec((err, resp) => {
-    // console.log(resp.query.results.channel.item.condition);
-    // console.log(resp.query.results.channel.item.forecast);
     if (err) {
       // TODO: handle error
-      return event.sender.send('city-error', err);
+      let notification = new Notification('Error', {
+        body: `Error: ${err}`,
+      });
+
+      return;
     }
 
     if (!resp.query.results) {
@@ -55,13 +57,6 @@ ipcMain.on('city-name', (event, arg) => {
 
     return event.sender.send('city-data', resp);
   });
-
-  // yahooWeather(arg).then(data => {
-  //   console.log(data.item.forecast[0]);
-  //   return event.sender.send('city-data', data);
-  // }).catch(err => {
-  //   return event.sender.send('city-error', err);
-  // });
 });
 
 function createWindow() {
@@ -85,7 +80,8 @@ function createWindow() {
 		slashes: true,
 	}));
 
-	mainWindow.webContents.openDevTools();
+	// Only for dev
+	// mainWindow.webContents.openDevTools();
 
 	mainWindow.on('closed', () => {
 		mainWindow = null;
