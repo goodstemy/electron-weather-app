@@ -1,28 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-	<meta charset="UTF-8">
-	<title>Weather App</title>
-	<link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,700&amp;subset=cyrillic-ext" rel="stylesheet">
-	<link rel="stylesheet" href="stylesheets.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="public/css/normalize.css">
+    <link rel="stylesheet" href="public/css/style.css">
+    <link rel="stylesheet" href="public/css/font-awesome.min.css">
+    <title>Weather app</title>
 </head>
 <body>
-	<div id="bg" class="background">
-		<div class="filter"></div>
-		<div class="input">
-			<center>
-				<input type="text" id="city-name">
-				<button id="button">search</button>
-			</center>
-		</div>
-		<div class="result">
-			<center>
-				<p class="city" id="city"></p>
-				<p class="output" id="output"></p>
-			</center>
-		</div>
-	</div>
+    <div id="root"></div>
 
-	<script src="client.js"></script>
+    <script src="public/js/rainyday.min.js"></script>
+    <script src="public/js/bundle.js"></script>
 </body>
 </html>

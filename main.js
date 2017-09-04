@@ -1,59 +1,21 @@
 const electron = require('electron');
 const path = require('path');
 const url = require('url');
-const weather = require('weather-js');
-const GoogleImages = require('google-images');
+const yahooWeather = require('yahoo-weather');
+const YQL = require('yql');
+const Notification = require('electron-native-notification');
 
 const {ipcMain} = require('electron');
 
 const app = electron.app;
 const BrowserWindow = electron.BrowserWindow;
 
-const client = new GoogleImages('001462481511008949931:vvhugxvyp6u', 'AIzaSyBSljMrRqro1HpWZobmnAHddw2bNtZOyMU');
-
-require('electron-reload')(__dirname, {
-	electron: require('electron-prebuilt')
-});
-
 let mainWindow;
 
-function createWindow() {
-	mainWindow = new BrowserWindow({
-		width: 800, height: 600, icon: path.join(__dirname, 'static/cloud.png')
-	});
-
-	mainWindow.loadURL(url.format({
-		pathname: path.join(__dirname, 'index.html'),
-		protocol: 'file:',
-		slashes: true,
-	}))
-
-	mainWindow.webContents.openDevTools()
-
-
-
-	ipcMain.on('asynchronous-message', (event, arg) => {
-
-  	weather.find({search: arg, degreeType: 'C'}, (err, result) => {
-  		if (err) console.log(err);
-
-			client.search(arg)
-				.then(images => {
-  				event.sender.send('asynchronous-reply', {res: result, img: images})
-				})
-				.catch(err => {
-					console.log(err);
-				});
-
-  	});
-	  // console.log(arg)  // prints "ping"
-	  // event.sender.send('asynchronous-reply', 'pong')
-	});
-
-	mainWindow.on('closed', () => {
-		mainWindow = null;
-	});
-}
+// Only for dev
+// require('electron-reload')(__dirname, {
+// 	electron: require('electron-prebuilt')
+// });
 
 app.on('ready', createWindow);
 
@@ -68,3 +30,60 @@ app.on('activate', () => {
 		createWindow();
 	}
 });
+
+ipcMain.on('city-name', (event, arg) => {
+  console.log('server received', arg);
+
+  const query = new YQL(
+    `select * from weather.forecast where woeid in (select woeid from geo.places(1) where text="${arg}") and u='c'`);
+
+  query.exec((err, resp) => {
+    if (err) {
+      // TODO: handle error
+      let notification = new Notification('Error', {
+        body: `Error: ${err}`,
+      });
+
+      return;
+    }
+
+    if (!resp.query.results) {
+      let notification = new Notification('Error', {
+        body: `City ${arg} not found`,
+      });
+
+      return;
+    }
+
+    return event.sender.send('city-data', resp);
+  });
+});
+
+function createWindow() {
+	mainWindow = new BrowserWindow({
+		width: 800, 
+		height: 600, 
+		icon: path.join(__dirname, 'public/img/cloud.png'),
+		frame: false,
+		minHeight: 500,
+		minWidth: 400,
+		maxHeight: 500,
+		maxWidth: 800,
+		center: true,
+	});
+
+	mainWindow.setMenu(null);
+
+	mainWindow.loadURL(url.format({
+		pathname: path.join(__dirname, 'index.html'),
+		protocol: 'file:',
+		slashes: true,
+	}));
+
+	// Only for dev
+	// mainWindow.webContents.openDevTools();
+
+	mainWindow.on('closed', () => {
+		mainWindow = null;
+	});
+}

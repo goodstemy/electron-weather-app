@@ -1,9 +1,18 @@
-# electron-weather-app
+# Weather App
 
-Just install deps and start app
+## How to run:
 
+Just install dependencies and start
 ```
 npm install -g electron
+npm install && npm start
+```
+
+## How to develop:
+```
+npm install -g webpack
+npm install -g electron
 npm install
-electron .
+npm start
+from another terminal: npm run watch
 ```
